@@ -30,11 +30,11 @@
             </li>
             <li>
               <%= link_to "#" do %>
-              <%= image_tag "icons/camerat.png" %>
+              <%= image_tag "icons/camera.png" %>
               <% end %>
             </li>
             <li>
-              <%= link_to logout_path, method: delete do %>
+              <%= link_to logout_path, method: :delete do %>
               <%= image_tag "icons/logout.png" %>
               <% end %>
             </li>
@@ -55,6 +55,7 @@
     </nav>
     <%= yield %>
     
+    <!--jQueryを使っている-->
     <script>
       $(function(){
         $(".alert").fadeOut(5000);

@@ -19,34 +19,39 @@
     <nav class="navbar navbar-default navbar-fixed-top navbar-transparent">
       <div class="container">
         <%= link_to root_path do %>
-        <span><%= image_tag "icons/logo.png", class: "navbar-brand" %></span>
+        <span><%= image_tag "icons/logo.png", class: "navbar-brand", title: "トップ" %></span>
         <% end %>
         <ul class="nav navbar-nav navbar-right">
           <% if logged_in? %>
             <li>
-              <%= link_to "#" do %>
-              <%= image_tag "icons/heart.png" %>
+              <%= link_to topics_path do %>
+                <p>投稿一覧</p>
+              <% end %>
+            </li>
+            <li>
+              <%= link_to favorites_index_path do %>
+                <%= image_tag "icons/heart.png", title: "いいね一覧" %>
               <% end %>
             </li>
             <li>
               <%= link_to new_topic_path do %>
-              <%= image_tag "icons/camera.png" %>
+                <%= image_tag "icons/camera.png", title: "新規投稿" %>
               <% end %>
             </li>
             <li>
-              <%= link_to logout_path, method: :delete do %>
-              <%= image_tag "icons/logout.png" %>
+              <%= link_to logout_path, method: :delete, title: "ログアウト" do %>
+                <%= image_tag "icons/logout.png" %>
               <% end %>
             </li>
           <% else %>
             <li>
-              <%= link_to new_user_path do %>
-              <%= image_tag "icons/register.png" %>
+              <%= link_to new_user_path, title: "新規登録" do %>
+                <%= image_tag "icons/register.png" %>
               <% end %>
             </li>
             <li>
             <%= link_to login_path do %>
-            <%= image_tag "icons/login.png" %>
+              <%= image_tag "icons/login.png", title: "ログイン" %>
             <% end %>
             </li>
           <% end %>

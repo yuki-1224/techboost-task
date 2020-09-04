@@ -4,7 +4,7 @@ class ApplicationController < ActionController::Base
   add_flash_types :success, :info, :warning, :danger
   
   helper_method :current_user, :logged_in?
-  # ↑でcurrent_userとlogged_in?がメソッドで使える
+  # ↑でcurrent_userとlogged_in?がviewで使える?
   def current_user
   @current_user ||= User.find_by(id:session[:user_id])
   end

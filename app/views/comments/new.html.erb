@@ -25,12 +25,21 @@
           <p class="topic-text">
             <%= @topic.description %>
           </p>
+          <p class="comment-title">コメント</p>
+          <% @comments.each do |comment| %>
+            <div>
+              <%= comment.user.name %>
+            </div>
+            <div class="comment-sentence">
+              <%= comment.sentence %>
+            </div>
+          <% end %>
           <%= form_for @comment do |f| %>
           <p>コメント</p>
             <div>
               <%= f.text_area :sentence, class: "text-area" %>
             </div>
-            <% f.hidden_field :topic_id, :value => @topic.id %>
+            <%= f.hidden_field :topic_id, :value => @topic.id %>
             <%= f.submit 'コメントする', class: 'btn btn-black btn-block' %>
           <% end %>
         </div>

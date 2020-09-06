@@ -22,6 +22,7 @@
             <% end %>
             <%= link_to comments_new_path(topic_id: topic.id) do %>
               <%= image_tag 'icons/comment.png', class: 'topic-index-icon' %>
+              <%= topic.comments.count %>
             <% end %>
             <p class="topic-text">
               <%= topic.description %>

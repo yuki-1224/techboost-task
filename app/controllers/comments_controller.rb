@@ -12,8 +12,9 @@ class CommentsController < ApplicationController
       # flashはなくてもいいかも
       redirect_to comments_new_path, success: "コメントを送信しました"
     else
-      @topic = Topic.find_by(id: params[:topic_id])
-      flash.now[:danger] = "コメントを送れないのよ"
+      @topic = Topic.find_by(id: params[:comment][:topic_id])
+      @comments = Comment.where(topic_id: params[:comment][:topic_id])
+      flash.now[:danger] = "コメントを送れません"
       render :new
     end
   end

@@ -17,4 +17,5 @@ Rails.application.routes.draw do
   
   get 'comments/new' 
   post '/comments' => "comments#create"
+  delete '/comments' => "comments#destroy"
 end

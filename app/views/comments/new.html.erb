@@ -33,6 +33,9 @@
             <div class="comment-sentence">
               <%= comment.sentence %>
             </div>
+            <% if comment.user_id = current_user.id %>
+              <%= link_to "削除", comments_path(comment_id: comment.id), class: 'btn', method: :delete %>
+            <% end %>
           <% end %>
           <%= form_for @comment do |f| %>
           <p>コメント</p>

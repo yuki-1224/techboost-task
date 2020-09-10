@@ -12,16 +12,15 @@
               <%= link_to favorites_path(topic_id: topic.id), method: :post do %>
                 <%= image_tag 'icons/heart-black.png', class: 'topic-index-icon' %>
                 <!--topic(Topicのインスタンスと紐付いているfavorite_idの数か？)-->
-                <%= topic.favorites.count %>
               <% end %>
             <% else %>
               <%= link_to favorites_path(topic_id: topic.id), method: :delete do %>
-                <%= image_tag "icons/heart-black.png", class: 'topic-index-icon heart-red' %>
-                <%= topic.favorites.count %>
+                <%= image_tag "icons/heart.png", class: 'topic-index-icon heart-red' %>
               <% end %>
             <% end %>
+            <%= topic.favorites.count %>
             <%= link_to comments_new_path(topic_id: topic.id) do %>
-              <%= image_tag 'icons/comment.png', class: 'topic-index-icon' %>
+              <%= image_tag 'icons/comment.png', class: 'topic-index-icon ' %>
               <%= topic.comments.count %>
             <% end %>
             <p class="topic-text">
